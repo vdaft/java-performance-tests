@@ -19,22 +19,22 @@ class MatrixTest {
 
         IntStream.range(0, matrix.length).forEach(i -> Arrays.fill(matrix[i], 1));
 
-        long now = System.nanoTime();
+        long start = System.nanoTime();
         Matrix.addOneToMatrix(matrix);
-        long time1 = System.nanoTime() - now;
+        long speed1 = System.nanoTime() - start;
 
 
-        now = System.nanoTime();
+        start = System.nanoTime();
         Matrix.addOneToMatrix2(matrix);
-        long time2 = System.nanoTime() - now;
+        long speed2 = System.nanoTime() - start;
 
         System.out.println();
         System.out.println("=== RESULTS ===");
-        System.out.println("1 took " + time1 / 1_000_000 + " ms");
-        System.out.println("2 took " + time2 / 1_000_000 + " ms");
-        System.out.println("Difference: " + (time2 - time1) / 1_000_000 + " ms");
-        System.out.println("1 was " + time2 / time1 + "x faster than 2");
+        System.out.println("1 took " + speed1 / 1_000_000 + " ms");
+        System.out.println("2 took " + speed2 / 1_000_000 + " ms");
+        System.out.println("Difference: " + (speed2 - speed1) / 1_000_000 + " ms");
+        System.out.println("1 was " + speed2 / speed1 + "x faster than 2");
 
-        assertTrue(time1 < time2);
+        assertTrue(speed1 < speed2);
     }
 }
